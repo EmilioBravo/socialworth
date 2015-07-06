@@ -208,7 +208,7 @@ class Socialworth
         $options[CURLOPT_HEADER] = false;
         $options[CURLOPT_RETURNTRANSFER] = true;
         $options[CURLOPT_SSL_VERIFYPEER] = false;
-        $options[CURLOPT_FOLLOWLOCATION] = true;
+        $options[CURLOPT_FOLLOWLOCATION] = false;
 
         curl_setopt_array($this->curl, $options);
 
