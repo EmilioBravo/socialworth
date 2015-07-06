@@ -204,7 +204,7 @@ class Socialworth
         */
 
         $options[CURLOPT_URL] = rtrim($endpoint, '?&');
-        $options[CURLOPT_TIMEOUT] = 5;
+        $options[CURLOPT_TIMEOUT] = 15;
         $options[CURLOPT_HEADER] = false;
         $options[CURLOPT_RETURNTRANSFER] = true;
         $options[CURLOPT_SSL_VERIFYPEER] = false;
