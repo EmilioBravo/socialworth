@@ -53,6 +53,16 @@ class Socialworth
 
                     return 0;
                 }),
+            'facebook_comments' => array(
+                'method'   => 'GET',
+                'url'      => 'https://graph.facebook.com/fql?q=' . urlencode("SELECT comment_count FROM link_stat WHERE url = \"{$this->url}\""),
+                "callback" => function ($resp) {
+                    if ($resp && isset($resp->data[0]->comment_count) && $resp->data[0]->comment_count) {
+                        return (int)$resp->data[0]->comment_count;
+                    }
+
+                    return 0;
+                }),
             'pinterest' => array(
                 'method'   => 'GET',
                 'url'      => "http://api.pinterest.com/v1/urls/count.json?url={$this->url}",
