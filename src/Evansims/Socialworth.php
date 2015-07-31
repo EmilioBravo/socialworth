@@ -9,6 +9,7 @@ class Socialworth
     public $services = array(
         'twitter'     => true,
         'facebook'    => true,
+        'facebook_comments'    => true,
         'pinterest'   => true,
         'reddit'      => true,
         //'hackernews'  => true,
@@ -244,7 +245,9 @@ class Socialworth
             if ($enabled && isset($endpoints[$service])) {
                 $actions = $this->__get($endpoints[$service]);
                 $response[$service] = $actions;
-                $response['total'] += $actions;
+                if($service!='facebook_comments'){
+                    $response['total'] += $actions;
+                }
             }
         }
 
